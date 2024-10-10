@@ -1,0 +1,27 @@
+.submenu, .submenu li a {
+    background-color: #27374D;
+    color: #fff;
+    text-decoration: none;
+}
+
+.submenu {
+    text-align: center;
+    align-items: center;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.submenu li a:hover {
+    cursor: pointer;
+    color: #dbdb4a;
+}
+
+.pie {
+    height: 400px !important;
+}
+
+@media screen and (max-width: 560px) {
+    .submenu {
+        display: none;
+    }
+}

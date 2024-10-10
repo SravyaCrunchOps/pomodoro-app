@@ -1,76 +1,199 @@
-# Getting Started with Create React App
+# Project Documentation - Pomodoro Frontend
+This application is divided into 3 folders 
+1. Assets
+2. Components
+3. Pages
+4. App.js (Main)
+5. Dashboard (AI)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 1. Assets Folder:
+------------------------------------------------------------------
+Contains two audio file for clicking the mouse and clock alarm
 
-## Available Scripts
+### 2. Components Folder:
+-----------------------------------------------------------------
+  -> Header
+  -> Footer 
 
-In the project directory, you can run:
+  Header
+  -----------
+  title -> Pomodoro
+  user ? display icon : Login - Signup buttons
+  user => dropdown menu
+          |
+          -> displayname , email
+          -> Dashboard
+          -> Settings
+          -> Logout
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  Footer
+  ------------
+  Footer From => input label
+  Footer Links => menu links
+                  |
+                  -> Home
+                  -> Login
+                  -> Signup
+                  -> About Us
+                  -> Privacy Policy
+                  -> Disclaimer
+  Footer social Media => linkedin, github, facebook icons...
 
 
-### my warnings
+### 3. Pages:
+----------------------------------------------------------------
+a. Home Page
+b. Login Page
+c. Signup Page
+d. Settings Page (for user settings)
+e. Timer Page
+f. Dashboard Page (AI)
 
-1. Line 17:11:  The 'checkedTasks' conditional could make the dependencies of useEffect Hook (at line 36) change on every render. Move it inside the useEffect callback. Alternatively, wrap the initialization of 'checkedTasks' in its own useMemo() Hook  react-hooks/exhaustive-deps
-  ##### solution: useMemo()  - to memoize the values
+
+#### a. Home Page:
+--------------------------
+- component render => '`Timer`'
+- KPI - 
+      | 
+      -> App load time and 
+      -> error_count when loading the home page
+- API used - 
+      |
+      -> Metrics API for app load time
+      -> POST - http://localhost:7000/metrics
+
+#### b. Logn Page
+-------------------------
+- status message - success or error
+- submit form -> email, password
+- if not existing user, there's '`signup`' button
+- Login via Google
+- API used - 
+      |
+      1. POST - http://localhost:7000/user/login
+                |
+                2. POST - http://localhost:7000/user/verifyUser
+
+      3. GET - http://localhost:7000/auth/google
+
+#### c. Signup Page
+--------------------------
+- status message - success or error
+- submit form -> display name, email, password
+- if not existing user, there's '`signup`' button
+- Login via Google
+- API used - 
+      |
+      1. POST - http://localhost:7000/user/signup
+
+      2. GET - http://localhost:7000/auth/google
+
+
+#### d. settings Page 
+-----------------------------------
+- User can edit
+              |
+              -> Profile name, email, password
+              -> Customize Timer for timer, long break and short break 
+- API used - 
+      |
+      1. POST - http://localhost:7000/user/updateUser?email=
+
+
+#### e. Timer Page
+--------------------------------------------
+1. Timer.js
+   |
+   -> `TNavbar` component - timer, long break, short break
+   -> `TaskUI` component - 
+   -> `TimerUI` component -
+   -> `TimerContent` component - contains text and information about pomodoro 
+
+2. TaskUI folder
+   |
+   -> TaskUI.js
+              |
+              -> TaskList - 
+                      |
+                      -> task name, 
+                      -> {edit, delete} buttons, 
+                      -> check form, 
+                      -> description and 
+                      -> title
+              -> TaskForm - 
+                      |
+                      -> title (task name) - input form text
+                      -> Act - input form number
+                      -> `TaskButtons` component
+                                      |
+                                      -> description
+                                      -> title
+
+    -> API used -
+              |
+              -> POST - http://localhost:7000/checkTodayTasks
+
+3. Timer UI folder
+  |
+  -> message
+  -> `TimerNav` component - contains 'Navbar pills' like timer, long break, short break. Depending on the timer..background color and time will change in UI
+  -> `TimerButtons` component - contains 'PAUSE', 'START' and 'STOP' buttons
+  -> API used
+            |
+            -> POST - http://localhost:7000/createTask     
+            -> POST - http://localhost:7000/metrics 
+
+
+4. TimerNavbar folder
+  |
+  -> `TNavbar.js` - contains 'Task List' and 'Task Resport'
+                |
+                -> `TList` component - Tabular list contains - date, title, focus time, project, description
+                -> `TReport` component - Visualization of user tasks in bar graph based on week and month.
+  -> API used - 
+            |
+            -> POST - http://localhost:7000/reportService
+            -> POST - http://localhost:7000/metrics
+                    - Report to check if file is downloaded or not.
+
+
+### 4. App.js
+----------------------------
+- All compoents are rendered in this file
+- Home page,
+- Settings page
+- Dashboard page
+- Login page
+- Signup page
+- Error Page
+- API used - 
+        |
+        -> GET - http://localhost:7000/auth/login/success
+
+
+### 5. Dashboard Page (AI) 
+-------------------------------
+- Tasks => `DashboardList` component 
+- Analytics => `DashboardChart` component
+- API used
+        |
+        -> POST - http://localhost:7010/dashboard
+                - Gets data list, df (dataframe), topic_labels from ML backend 
+
+
+
+### config file
+----------------------------------
+1. apiUrl: process.env.REACT_APP_API_URL,
+2. reportsUrl: process.env.REACT_APP_REPORTS_API_URL,
+3. metrics_url: process.env.REACT_APP_METRICS_URL,
+4. jaeger_trace_url: process.env.REACT_APP_JAEGER_TRACE_URL
+
+### .env file
+----------------------------------
+REACT_APP_API_URL = http://localhost:7000
+
+REACT_APP_REPORTS_API_URL = http://localhost:7070
+
+REACT_APP_METRICS_URL = http://localhost:7000/metrics
+

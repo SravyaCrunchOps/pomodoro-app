@@ -101,7 +101,7 @@ app.post('/tasks', async (req, res) => {
                 emailId: req.body? req.body.email : null,
                 statusCode: res.statusCode,
             }
-            logger.info('New user. So no tsklist :(', logFormat(req, logResult))
+            logger.info('New user. So no tasklist :(', logFormat(req, logResult))
             span.end()
             return res.status(200).json({task: false, existingUser: req.body});
         }

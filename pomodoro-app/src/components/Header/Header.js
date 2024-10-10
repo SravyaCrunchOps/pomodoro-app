@@ -72,6 +72,11 @@ function Header() {
                       </Link>
                     </li>
                     <li className='dropdown-item mb-1 py-2'>
+                      <Link to={`/${user.displayName}/mydashboard`} className="text-decoration-none text-black">
+                        <i className="bi bi-person-circle me-3"></i>My Dashboard
+                      </Link>
+                    </li>
+                    <li className='dropdown-item mb-1 py-2'>
                       <Link to={`/${user.displayName}/settings`} className="text-decoration-none text-black">
                         <i className="bi bi-person-circle me-3"></i>Settings
                       </Link>

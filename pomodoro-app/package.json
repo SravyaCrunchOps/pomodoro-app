@@ -21,6 +21,7 @@
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "chart.js": "^4.4.2",
+    "chartjs-plugin-datalabels": "^2.2.0",
     "dotenv": "^16.4.5",
     "es6-promise": "^4.2.8",
     "html2pdf.js": "^0.10.1",

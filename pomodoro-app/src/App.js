@@ -2,6 +2,9 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Settings from './pages/Settings/Settings';
+import Dashboard from './pages/Dashboard/Dashboard';
+import DashboardList from './pages/Dashboard/DashboardList';
+import DashboardChart from './pages/Dashboard/DashboardChart';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 import ErrorPage from './ErrorPage';
@@ -62,6 +65,10 @@ function App() {
         <Routes>
           <Route exact path='/' Component={Home} />
           <Route path="/:username/settings" Component={Settings} />
+          <Route path="/:username/mydashboard/" element={<Dashboard />}>
+            <Route path='mytasks' element={<DashboardList />} />
+            <Route path='mychart' element={<DashboardChart />} />
+          </Route>
           <Route path='/login' Component={Login} />
           <Route path='/signup' Component={Signup} />
           <Route path='*' Component={ErrorPage} />
